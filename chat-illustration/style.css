@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 100%;
+}
+
+.container {
+  display: flex;
+  flex-flow: column;
+  background-color: hsl(270, 20%, 96%);
+}
+
+.phone {
+  display: flex;
+  width: 90%;
+  min-height: 400px;
+  max-width: 355px;
+  margin: 100px auto;
+  box-shadow: 5px 15px 40px rgba(0, 0, 0, 0.274);
+  border-radius: 30px;
+  background-color: #fff;
+}
+
+.screen {
+  width: 90%;
+  height: 92%;
+  margin: 20px auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.screen-top {
+  width: 100%;
+  min-height: 60px;
+  background: linear-gradient(90deg, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.363);
+  position: relative;
+  z-index: 100;
+}
+
+.notch {
+  width: 55%;
+  height: 20px;
+  background-color: #fff;
+  margin: auto;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  margin: auto 10px;
+}
+
+.avatar + div {
+  color: #fff;
+  margin: auto;
+}
+
+.avatar + div p:first-child {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.avatar + div p:last-child {
+  font-size: 0.7rem;
+}
+
+.client {
+  display: flex;
+  justify-content: space-between;
+}
+
+.status {
+  display: flex;
+  min-height: 50px;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  /* outline: auto; */
+}
+
+.back {
+  width: 15px;
+  fill: white;
+  margin: auto 0;
+  stroke-width: 30px;
+  stroke: white;
+  stroke-linecap: round;
+}
+
+.dots {
+  fill: white;
+  stroke-width: 50px;
+  margin: auto 5px;
+}
+
+/* Messages */
+
+.messages {
+  width: fit-content;
+  max-width: 70%;
+  min-height: fit-content;
+  font-size: 0.7rem;
+  padding: 10px;
+  padding-right: 10px;
+  margin: 10px 0;
+  background-color: hsla(206, 7%, 79%, 0.548);
+  color: hsl(276, 55%, 52%);
+  border-radius: 15px;
+  border-bottom-left-radius: 4px;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  outline: 1px solid hsl(289, 100%, 72%);
+  border-radius: 10px;
+}
+
+.chat {
+  background-color: hsl(270, 20%, 96%);
+  padding: 0 10px;
+  height: 550px;
+  padding-top: 10px;
+}
+
+.right {
+  margin-left: auto;
+  color: hsl(271, 15%, 43%);
+  background-color: #fff;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 15px;
+}
+
+.images {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  background: none;
+}
+
+.images div {
+  width: 50px;
+}
+
+.images img {
+  border-radius: 10px;
+}
+
+.options {
+  display: flex;
+  background: linear-gradient(-90deg, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
+  color: white;
+  width: 85%;
+  max-width: none;
+  justify-content: space-between;
+}
+
+.options p {
+  margin: auto 10px;
+}
+
+.options div {
+  display: flex;
+}
+
+.options > p {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.bar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  /* outline: auto; */
+  padding: 5px 10px;
+  border-radius: 30px;
+  margin: 25px 0;
+  font-size: 0.8rem;
+  color: hsl(206, 6%, 79%);
+}
+
+.bar * {
+  margin: auto 0;
+}
+
+.send {
+  width: 30px;
+  height: 30px;
+  fill: hsl(271, 36%, 24%);
+}
+
+/* Content */
+
+.content P:first-child {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  color: hsl(271, 36%, 24%);
+}
+
+.content P:last-child {
+  color: hsl(270, 7%, 64%);
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 0 25px;
+  margin: 40px auto;
+  line-height: 30px;
+  max-width: 730px;
+}
+
+/* Desktop */
+
+@media screen and (min-width: 992px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .content {
+    margin: auto;
+    margin-right: 10%;
+  }
+
+  .content P:first-child {
+    font-size: 2.9rem;
+  }
+
+  .content P:first-child,
+  .content P:last-child {
+    text-align: left;
+    padding: 0;
+    max-width: 600px;
+  }
+}
