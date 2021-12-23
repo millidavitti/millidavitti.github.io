@@ -411,6 +411,7 @@ footer div:nth-of-type(2) {
   height: 10px;
   background: teal;
   position: fixed;
+  z-index: 100;
 }
 
 .wrap-1 {
