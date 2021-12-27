@@ -74,7 +74,7 @@ deskItems.forEach((menuItem) =>
   menuItem.addEventListener("mouseleave", function (e) {
     console.log(e.currentTarget);
 
-    e.stopImmediatePropagation();
+  
     e.target.classList.remove("show-menu-items-desk");
   })
 );
