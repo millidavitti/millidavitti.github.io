@@ -420,7 +420,7 @@ footer {
   }
 
   .menu-head:hover {
-    color: rgba(220, 20, 60, 0.562);
+    text-decoration: underline;
   }
 
   .nav-btn-desk {

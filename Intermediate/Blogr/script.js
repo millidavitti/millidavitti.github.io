@@ -11,10 +11,9 @@ const mobNav = document.querySelector(".mobile-nav");
 const menuHead = document.querySelector(".menu-head");
 const mobileItems = document.querySelectorAll(".menu-items");
 const deskItems = document.querySelectorAll(".menu-items-desk");
-const desknav = document.querySelector("nav");
-
 const deskItem = document.querySelector(".menu-items-desk");
 
+// deskItem.closest(".desk-nav-menu").style.outline = "auto";
 function headerEventListener(e) {
   //   console.log(e.target);
   //   Ham
@@ -29,7 +28,7 @@ function headerEventListener(e) {
     mobileItems.forEach((ul) => {
       ul.classList.remove("show-menu-items");
       if (ul.dataset.menu === e.target.dataset.menu) {
-        ul.classList.add("show-menu-items");
+        ul.classList.toggle("show-menu-items");
       }
     });
   }
@@ -55,18 +54,27 @@ header.addEventListener("click", headerEventListener);
 // Nav Menu
 function deskMenuListner(e) {
   if (e.target.matches(".menu-head-desk")) {
-    console.log(e.target.closest("div"));
+    // console.log(e.target.closest("div"));
+    // console.log(e.target);
     ////
-    deskItems.forEach((item) => {
-      if (item.dataset.desk === e.target.dataset.desk) {
-        item.classList.add("show-menu-items-desk");
-      } else item.classList.remove("show-menu-items-desk");
+    deskItems.forEach((ul) => {
+      if (!e.target.matches(".menu-head-desk"))
+        ul.classList.remove("show-menu-items-desk");
+      if (ul.dataset.desk === e.target.dataset.desk) {
+        ul.classList.add("show-menu-items-desk");
+      } else ul.classList.remove("show-menu-items-desk");
     });
   }
 }
 
 // Shows menu items
-// desknav.addEventListener("mouseover", deskMenuListner);
-deskItem.addEventListener("mouseover", function (e) {
-  console.log(e.target);
-});
+deskItem.closest("nav").addEventListener("mouseover", deskMenuListner);
+
+deskItems.forEach((menuItem) =>
+  menuItem.addEventListener("mouseleave", function (e) {
+    console.log(e.currentTarget);
+
+    e.stopImmediatePropagation();
+    e.target.classList.remove("show-menu-items-desk");
+  })
+);
