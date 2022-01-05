@@ -9,7 +9,29 @@
   </head>
   <body>
     <main>
+      <div class="rules-overlay"></div>
       <section class="player player--0 player--active">
+        <div class="rules">
+          <span class="close-rules">X</span>
+          <div class="wrap">
+            <h1>Lets Roll</h1>
+            <p>
+              The rules are simple, roll the dice and hold as you please. Keep
+              in mind that, when you roll one, you lose all accumulated dice
+              rolls and your turn. First to accumulate the default sum value
+              (200) of dice rolls wins. You can set your own value. Hit enter to
+              start right away!
+            </p>
+            <form action="submit">
+              <input
+                type="number"
+                name="Target"
+                id="target"
+                placeholder="Set target score e.g 200"
+              />
+            </form>
+          </div>
+        </div>
         <h2 class="name" id="name--0">Player 1</h2>
         <p class="score" id="score--0">43</p>
         <div class="current">
