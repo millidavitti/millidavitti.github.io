@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator">
+        <div>
+          <h1>Calculator</h1>
+          <button class="hist-btn">Hist</button>
+        </div>
+        <div id="overlay"></div>
+        <div class="hist-list">
+          <h2>History</h2>
+          <div class="hist-container"></div>
+          <button id="clear">Clear</button>
+        </div>
+        <div class="input-screen">
+          <p class="input-streak"></p>
+          <label for="number"></label>
+          <input type="text" name="" id="number" disabled />
+        </div>
+        <!-- Keypad -->
+        <div class="keypad grid">
+          <button class="keys operator" id="percent">%</button>
+          <button class="keys operator" id="ce">CE</button>
+          <button class="keys operator" id="c">C</button>
+          <button class="keys operator" id="del">del</button>
+          <button class="keys operator" id="oneth">1/x</button>
+          <button class="keys operator" id="square">x^2</button>
+          <button class="keys operator" id="square-root">√x</button>
+          <button class="keys operator" id="divide">÷</button>
+          <button class="keys digi-pad" id="seven" data-value="7">7</button>
+          <button class="keys digi-pad" id="eight" data-value="8">8</button>
+          <button class="keys digi-pad" id="nine" data-value="9">9</button>
+          <button class="keys operator" id="multiply">X</button>
+          <button class="keys digi-pad" id="four" data-value="4">4</button>
+          <button class="keys digi-pad" id="five" data-value="5">5</button>
+          <button class="keys digi-pad" id="six" data-value="6">6</button>
+          <button class="keys operator" id="subtract">-</button>
+          <button class="keys digi-pad" id="one" data-value="1">1</button>
+          <button class="keys digi-pad" id="two" data-value="2">2</button>
+          <button class="keys digi-pad" id="three" data-value="3">3</button>
+          <button class="keys operator" id="add">+</button>
+          <button class="keys digi-pad" id="plus-minus">+/-</button>
+          <button class="keys digi-pad" id="zero" data-value="0">0</button>
+          <button class="keys digi-pad" id="point" data-value=".">.</button>
+          <button class="keys operator" id="equals">=</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
