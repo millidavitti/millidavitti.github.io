@@ -11,16 +11,26 @@ const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 const player0 = document.querySelector('.player--0');
 const player1 = document.querySelector('.player--1');
+const customWinScore = document.querySelector('#target');
+const closeRules = document.querySelector('.close-rules');
+const rulesContainer = document.querySelector('.rules');
 const scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
 
-const winScore = 200;
+const scoreVal = +customWinScore.value;
+let winScore;
 currentScore0El.textContent = 0;
 currentScore1El.textContent = 0;
 score0El.textContent = 0;
 score1El.textContent = 0;
 diceEl.classList.add('hidden');
+
+// const scorePromise = new Promise((resolve, _) => {
+//   resolve(+customWinScore.value);
+// });
+
+// console.log(scorePromise);
 
 const winner = function () {
   diceEl.classList.add('hidden');
@@ -63,7 +73,7 @@ btnRoll.addEventListener('click', function () {
 
 btnHold.addEventListener('click', function () {
   if (currentScore > 0) {
-    score()
+    score();
     currentScore0El.textContent = currentScore;
     // if palyer 1 wins
     if (
@@ -74,7 +84,7 @@ btnHold.addEventListener('click', function () {
       winner();
     } else {
       if (activePlayer === 1) {
-        score()
+        score();
         currentScore1El.textContent = currentScore;
         // if player 2 wins
         if (
@@ -110,8 +120,32 @@ btnNew.addEventListener('click', function () {
     activePlayer = 0;
   }
 
+  rulesContainer.classList.remove('hidden');
+  document.querySelector('.rules-overlay').classList.remove('hidden');
+  document.querySelector('#target').focus();
+
   document.querySelector('.btn--roll').disabled = false;
   document.querySelector('.btn--hold').disabled = false;
 });
 
-// DONALD DON DID IT
+rulesContainer.addEventListener('click', e => {
+  // console.log(e.target);
+
+  function setScore() {
+    rulesContainer.classList.add('hidden');
+    document.querySelector('.rules-overlay').classList.add('hidden');
+    winScore = +customWinScore.value || 200;
+    document.querySelector('#target').value = '';
+  }
+  if (e.target.matches('.close-rules')) setScore();
+
+  // Form
+  if (e.target.matches('#target')) {
+    const form = e.target.closest('form');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      setScore();
+    });
+  }
+});
+
