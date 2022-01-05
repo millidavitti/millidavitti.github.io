@@ -170,3 +170,67 @@ main {
 .hidden {
   display: none;
 }
+
+.rules-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(51, 51, 51, 0.733);
+}
+
+.rules {
+  position: absolute;
+  width: 70%;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #c7365f;
+  z-index: 10;
+  border-radius: 7px;
+  color: white;
+}
+
+.rules span {
+  position: absolute;
+  font-size: 3rem;
+  font-weight: 800;
+  right: 2rem;
+  top: 1rem;
+  cursor: pointer;
+
+  z-index: 11;
+}
+
+.wrap {
+  padding: 2rem;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+}
+
+.wrap p {
+  margin: 10px 0;
+}
+
+#target {
+  margin: 10px 0;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 7px;
+  font-size: 1.9rem;
+  width: 250px;
+  background-color: #c7365f;
+}
+
+#target:focus {
+  background-color: white;
+  outline: none;
+  border: 1px solid black;
+}
+
+#target::placeholder {
+  font-size: 1.5rem;
+  color: white;
+}
