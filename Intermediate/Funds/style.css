@@ -125,6 +125,10 @@ nav {
   overflow: scroll;
 }
 
+.movements::-webkit-scrollbar {
+  display: none;
+}
+
 .movements__row {
   padding: 2.25rem 4rem;
   display: flex;
