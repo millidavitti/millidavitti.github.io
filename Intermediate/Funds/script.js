@@ -268,10 +268,7 @@ const login = function (e) {
     ).format(now);
 
     document.querySelector('.user-details').classList.add('hide');
-    if (tick()) {
-      clearInterval(timer);
-      startTimer();
-    } else startTimer();
+    timerLogic();
 
     updateUI();
   } else {
@@ -372,6 +369,13 @@ function startTimer() {
   timer = setInterval(tick, 1000);
 }
 
+function timerLogic() {
+  if (tick()) {
+    clearInterval(timer);
+    startTimer();
+  } else startTimer();
+}
+
 const details = document.querySelector('.user-details');
 const lists = document.querySelectorAll('.user-details ul li');
 const deets = {
@@ -413,4 +417,5 @@ details.addEventListener('click', e => {
   }
 });
 
-//////////////////////
+document.addEventListener('mousemove', timerLogic);
+
