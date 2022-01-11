@@ -1,0 +1,247 @@
+main {
+  background: url(../assets/technology/background-technology-mobile.jpg)
+    no-repeat;
+  background-size: cover;
+}
+
+.tech {
+  color: var(--tetiary-color);
+  text-align: center;
+  padding: 10px 5%;
+}
+
+.tech-img {
+  /* width: 375px; */
+  height: 200px;
+
+  /* outline: auto; */
+  margin: 32px auto;
+  background: url(../assets/technology/image-launch-vehicle-landscape.jpg)
+    no-repeat center;
+  background-size: contain;
+  background-color: var(--primary-color);
+}
+
+.tech-h2 {
+  font-family: Barlow Condensed;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 2.7px;
+  text-transform: uppercase;
+  padding: 20px 0;
+}
+
+.tech span {
+  font-family: Barlow Condensed;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 2.7px;
+  margin: 0 7px;
+
+  mix-blend-mode: normal;
+  opacity: 0.25;
+}
+
+.tech-tabs {
+  display: flex;
+  justify-content: space-between;
+  width: 152px;
+  height: 40px;
+
+  margin: 0 auto;
+}
+
+.tech-tab {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--primary-color);
+  border: 1px solid var(--tetiary-color);
+  color: var(--tetiary-color);
+
+  font-family: Bellefair;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.active-tech-tab {
+  background-color: var(--tetiary-color);
+  color: var(--primary-color);
+}
+
+.tech-content {
+  margin: 32px 0;
+  padding: 0 5%;
+}
+
+.tech-content h2 {
+  font-family: Barlow Condensed;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+
+  text-align: center;
+  letter-spacing: 2.3625px;
+
+  color: var(--secondary-color);
+}
+
+.tech-content h1 {
+  font-family: Bellefair;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  margin: 8px 0;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  color: var(--tetiary-color);
+}
+
+.tech-content p {
+  font-family: Barlow;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 25px;
+
+  text-align: center;
+
+  color: var(--secondary-color);
+}
+
+/* Tablets */
+@media screen and (min-width: 768px) {
+  main {
+    background: url(../assets/technology/background-technology-tablet.jpg)
+      no-repeat;
+    background-size: cover;
+  }
+
+  .tech {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    /* padding: 0; */
+  }
+
+  .tech-h2 {
+    text-align: left;
+  }
+
+  .tech-content {
+    width: 458px;
+    /* height: 237px; */
+    /* margin: 8px auto; */
+  }
+
+  .tech-content h2 {
+    text-align: center;
+  }
+
+  .tech-img {
+    width: 100%;
+    height: 310px;
+  }
+
+  .tech-info {
+    margin: 0 auto;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+  .tech {
+    display: grid;
+    grid-template-rows: 80px 1fr;
+    height: fit-content;
+    gap: 80px;
+  }
+
+  .tech-info {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    /* outline: auto; */
+    grid-column: 1/7;
+    grid-row: 2/3;
+    gap: 30px;
+    width: 500px;
+  }
+
+  .tech-img {
+    grid-column: 7/-1;
+    /* outline: auto; */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .tech-tabs {
+    display: flex;
+    /* outline: auto; */
+    flex-flow: column;
+    justify-content: space-between;
+    height: 303px;
+    width: 80px;
+    grid-column: 1/2;
+    margin-top: auto;
+  }
+
+  .tech-tabs button {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+
+    font-size: 32px;
+    line-height: 37px;
+    letter-spacing: 2px;
+  }
+
+  .tech-content {
+    display: flex;
+    /* outline: auto; */
+    margin-bottom: 0;
+    width: 100%;
+    height: 303px;
+    padding-left: 0;
+  }
+
+  .tech-content article {
+    margin: auto;
+  }
+
+  .tech-content h1 {
+    font-size: 56px;
+    line-height: 64px;
+  }
+
+  .tech-content :is(h2, h1, p) {
+    text-align: left;
+  }
+  .tech-h2 {
+    grid-row: 1/2;
+    grid-column: 1/-1;
+
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: 4.725px;
+  }
+  .tech span {
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: 4.725px;
+  }
+}
