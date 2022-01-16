@@ -50,7 +50,9 @@ main {
   align-items: center;
   width: 70%;
   margin: 0 auto;
-
+  min-width: 280px;
+  flex-wrap: wrap;
+  column-gap: 10px;
   height: 48px;
   cursor: pointer;
 }
@@ -99,6 +101,7 @@ main {
   font-size: 15px;
   line-height: 25px;
   color: var(--secondary-color);
+  word-wrap: normal;
 
   text-align: center;
 }
@@ -136,9 +139,6 @@ main {
   text-align: center;
   text-transform: uppercase;
   color: var(--tetiary-color);
-}
-
-.distance {
 }
 
 /* Tablets */
