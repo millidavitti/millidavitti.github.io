@@ -60,6 +60,7 @@ nav {
   height: 40px;
   background: url(./assets/shared/logo.svg) no-repeat center;
   background-size: contain;
+  cursor: pointer;
 }
 
 .desk-nav {
