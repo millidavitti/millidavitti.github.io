@@ -159,6 +159,50 @@ techTabWrap?.addEventListener("click", (e) => {
 });
 
 // Explore
-explore?.addEventListener("click", (e) => {
-  document.querySelector(".menu-item:nth-of-type(2) a").click();
-});
+explore?.addEventListener("click", () => destination.link.click());
+
+document
+  .querySelector(".logo")
+  .addEventListener("click", () => home.link.click());
+
+// Desktop Navigation Component
+
+const nav = document.querySelector("nav");
+const main = document.querySelector("main");
+
+class Desk {
+  #deskNav = document.createElement("div");
+  #menuItems = document.createElement("menu");
+
+  constructor() {}
+
+  newNav() {
+    this.#deskNav.classList.add("desk-nav");
+    this.#menuItems.classList.add("menu-items");
+
+    this.#deskNav.append(this.#menuItems);
+
+    return { nav: this.#deskNav, object: this };
+  }
+
+  add(href, text) {
+    const list = document.createElement("li");
+    const link = document.createElement("a");
+    list.classList.add("menu-item");
+    list.append(link);
+    this.#menuItems.append(list);
+    link.textContent = text;
+    link.href = href;
+
+    return { link: link, object: this };
+  }
+}
+
+const desk = new Desk();
+desk.newNav();
+nav.firstElementChild.after(desk.newNav().nav);
+
+const home = desk.add("./index.html", "home");
+const destination = desk.add("./destination-moon.html", "destination");
+desk.add("./crew-commander.html", "crew");
+desk.add("./technology-vehicle.html", "technology");
