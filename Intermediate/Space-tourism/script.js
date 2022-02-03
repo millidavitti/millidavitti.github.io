@@ -172,8 +172,8 @@ class Desk {
   #style = document.styleSheets;
 
   #cssMedia = {
-    tablet: this.#style[0].cssRules?.[6],
-    desktop: this.#style[0].cssRules?.[7],
+    tablet: this.#style?.[0].cssRules?.[6],
+    desktop: this.#style?.[0].cssRules?.[7],
   };
 
   #cssDec = {
