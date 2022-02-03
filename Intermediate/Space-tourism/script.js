@@ -186,7 +186,9 @@ class Desk {
     desktop: this.#cssMedia.desktop.cssRules?.[1],
   };
 
-  constructor() {}
+  constructor() {
+    const desk = new Desk();
+  }
 
   newNav() {
     this.#deskNav.classList.add(this.cssClass.deskNav);
@@ -225,7 +227,7 @@ class Desk {
   };
 }
 
-const desk = new Desk();
+// const desk = new Desk();
 
 console.log(document.styleSheets[0]);
 
