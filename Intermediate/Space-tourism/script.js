@@ -227,6 +227,8 @@ class Desk {
 
 const desk = new Desk();
 
+console.log(document.styleSheets[0]);
+
 nav.append(desk.newNav().nav);
 
 const home = desk.add("./index.html", "home");
