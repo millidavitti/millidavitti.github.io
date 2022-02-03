@@ -189,7 +189,7 @@ class Desk {
   constructor() {}
 
   newNav() {
-    this.#deskNav.classList.add(this.cssClass.deskNav);
+    this.#deskNav.classList.add("desk-nav");
     this.#menuItems.classList.add("menu-items");
 
     this.#deskNav.append(this.#menuItems);
