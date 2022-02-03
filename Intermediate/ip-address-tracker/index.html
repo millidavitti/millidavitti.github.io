@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+
+    <script defer src="./script.js" ></script>
+    <title>Frontend Mentor | IP Address Tracker</title>
+  </head>
+  <body>
+    <main class="container">
+    
+      <section class="search-info">
+        <div class="input-wrap">
+          <h1>IP Address Tracker</h1>
+          <form>
+            <input
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Search for any IP address e.g 63.151.67.7"
+            />
+            <button type="submit">
+              <img src="./images/icon-arrow.svg" alt="" />
+            </button>
+          </form>
+        </div>
+
+        <section class="data">
+          <div class="data-wrap">
+            <h2>IP Address</h2>
+            <p id="address">127.0.0.1:8080</p>
+          </div>
+
+          <div class="data-wrap">
+            <h2>Location</h2>
+            <p id="location">Area 51</p>
+          </div>
+
+          <div class="data-wrap">
+            <h2>Timezone UTC</h2>
+            <p id="timezone">UTC-3</p>
+          </div>
+
+          <div class="data-wrap">
+            <h2>Continent</h2>
+            <p id="continent">Antarctica</p>
+          </div>
+        </section>
+      </section>
+      <div id="map"></div>
+    </main>
+
+    <!-- add offset value dynamically using the API -->
+
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Donald</a>. -->
+    </div>
+  </body>
+</html>
