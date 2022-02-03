@@ -172,18 +172,18 @@ class Desk {
   #style = document.styleSheets;
 
   #cssMedia = {
-    tablet: this.#style?.[0].cssRules?.[6],
-    desktop: this.#style?.[0].cssRules?.[7],
+    tablet: this.#style[0].cssRules[6],
+    desktop: this.#style[0].cssRules[7],
   };
 
   #cssDec = {
-    tablet: this.#cssMedia.tablet.cssRules?.[3].style,
-    desktop: this.#cssMedia.desktop.cssRules?.[1].style,
+    tablet: this.#cssMedia.tablet.cssRules[3].style,
+    desktop: this.#cssMedia.desktop.cssRules[1].style,
   };
 
   #cssRule = {
-    tablet: this.#cssMedia.tablet.cssRules?.[3],
-    desktop: this.#cssMedia.desktop.cssRules?.[1],
+    tablet: this.#cssMedia.tablet.cssRules[3],
+    desktop: this.#cssMedia.desktop.cssRules[1],
   };
 
   constructor() {}
