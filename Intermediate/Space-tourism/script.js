@@ -24,7 +24,6 @@ const dotWrap = document.querySelector(".dots");
 const dots = document.querySelectorAll(".dot");
 
 // Content
-
 const crewRole = document.querySelector(".crew-info h3");
 const crewName = document.querySelector(".crew-info h1");
 const crewBody = document.querySelector(".crew-info p");
@@ -41,10 +40,22 @@ const techImg = document.querySelector(".tech-img");
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Functions
+
+async function getData(src) {
+  const response = await fetch(src);
+  const data = await response.json();
+  return await data;
+}
+
+function activeTab(data, loopVar, className, e) {
+  if (data === loopVar.dataset.data) loopVar.classList.add(className);
+  else loopVar.classList.remove(className);
+  e.target.classList.add(className);
+}
+
 // Nav
 header.addEventListener("click", (e) => {
-  // e.preventDefault();
-  //   console.log(e.target);
   const menu = e.target.closest(".ham-icon");
 
   if (!menu) {
@@ -56,24 +67,13 @@ header.addEventListener("click", (e) => {
 
 // Destination
 
-async function getData(src) {
-  const response = await fetch(src);
-  const data = await response.json();
-  return await data;
-}
-
-// Destination
-
 tabWrap?.addEventListener("click", (e) => {
   // Tab Nav
   const tab = e.target.closest(".tabs h3");
   const { destination } = e.target.dataset;
   if (!tab) return;
   tabs.forEach((tab) => {
-    if (destination === tab.dataset.destination)
-      tab.classList.add("active-tab");
-    else tab.classList.remove("active-tab");
-    e.target.classList.add("active-tab");
+    activeTab(destination, tab, "active-tab", e);
 
     async function pickDestination(src) {
       const info = await getData(src);
@@ -104,10 +104,7 @@ dotWrap?.addEventListener("click", (e) => {
   if (!dot) return;
 
   dots.forEach((dot) => {
-    if (crew === dot.dataset.crew) dot.classList.add("active-dot");
-    else dot.classList.remove("active-dot");
-
-    e.target.classList.add("active-dot");
+    activeTab(crew, dot, "active-dot", e);
 
     async function meetCrew(src) {
       const info = await getData(src);
@@ -135,17 +132,15 @@ techTabWrap?.addEventListener("click", (e) => {
   const { tech } = e.target.dataset;
   if (!tab) return;
   techTabs.forEach((tab) => {
-    if (tech === tab.dataset.destination) tab.classList.add("active-tech-tab");
-    else tab.classList.remove("active-tech-tab");
-    e.target.classList.add("active-tech-tab");
-
+    activeTab(tech, tab, "active-tech-tab", e);
     async function pickTech(src) {
       const info = await getData(src);
       const { technology: ship } = info;
 
       const techh = tab.dataset.tech;
+
       if (tech === techh) {
-        const shipTech = ship[tech];
+        const shipTech = ship[techh];
 
         techImg.style.background = `url(${shipTech.images.landscape}) no-repeat center`;
         techImg.style.backgroundSize = "contain";
@@ -174,10 +169,27 @@ class Desk {
   #deskNav = document.createElement("div");
   #menuItems = document.createElement("menu");
 
+  #style = document.styleSheets;
+
+  #cssMedia = {
+    tablet: this.#style[0].cssRules[6],
+    desktop: this.#style[0].cssRules[7],
+  };
+
+  #cssDec = {
+    tablet: this.#cssMedia.tablet.cssRules[3].style,
+    desktop: this.#cssMedia.desktop.cssRules[1].style,
+  };
+
+  #cssRule = {
+    tablet: this.#cssMedia.tablet.cssRules[3],
+    desktop: this.#cssMedia.desktop.cssRules[1],
+  };
+
   constructor() {}
 
   newNav() {
-    this.#deskNav.classList.add("desk-nav");
+    this.#deskNav.classList.add(this.cssClass.deskNav);
     this.#menuItems.classList.add("menu-items");
 
     this.#deskNav.append(this.#menuItems);
@@ -188,6 +200,7 @@ class Desk {
   add(href, text) {
     const list = document.createElement("li");
     const link = document.createElement("a");
+
     list.classList.add("menu-item");
     list.append(link);
     this.#menuItems.append(list);
@@ -196,13 +209,133 @@ class Desk {
 
     return { link: link, object: this };
   }
+
+  setPropDesk(property, value) {
+    this.#cssDec.desktop.setProperty(property, value);
+    return this;
+  }
+
+  setPropTab(property, value) {
+    this.#cssDec.tablet.setProperty(property, value);
+    return this;
+  }
+
+  cssClass = {
+    deskNav: this.#cssRule.desktop.selectorText.replace(".", ""),
+  };
 }
 
 const desk = new Desk();
-desk.newNav();
-nav.firstElementChild.after(desk.newNav().nav);
+
+nav.append(desk.newNav().nav);
 
 const home = desk.add("./index.html", "home");
 const destination = desk.add("./destination-moon.html", "destination");
-desk.add("./crew-commander.html", "crew");
-desk.add("./technology-vehicle.html", "technology");
+
+desk
+  .add("./crew-commander.html", "crew")
+  .object.add("./technology-vehicle.html", "technology");
+
+desk
+  .setPropDesk("display", "inherit")
+  .setPropDesk("border", "7px solid darkcyan")
+  .setPropDesk("outline", "5px solid darkblue");
+
+desk
+  .setPropTab("display", "inherit")
+  .setPropTab("border", "7px solid darkblue")
+  .setPropTab("outline", "5px solid darkcyan");
+
+const style = document.styleSheets[0];
+const { cssRules } = style;
+const { cssRules: secRule } = cssRules[5];
+
+// console.log(secRule);
+
+// console.log([10, 20, 30, 40, 50, 60].entries());
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+// Iteration Protocol
+class Log {
+  constructor() {
+    this.messages = [];
+    this.mno = { m: 90, n: 91, o: 92 };
+  }
+  add(message) {
+    this.messages.push({ message, timestamp: Date.now() });
+  }
+
+  [Symbol.iterator]() {
+    let index = 0;
+    const mno = Object.values(this.messages);
+    return {
+      next() {
+        if (index >= mno.length) return { value: undefined, done: true };
+        return { value: mno[index++], done: false };
+      },
+    };
+  }
+}
+
+const log = new Log();
+
+log.add("first day at sea");
+log.add("spotted whale");
+log.add("spotted another vessel");
+
+console.log(log);
+
+try {
+  for (const entry of log) {
+    console.log(`${entry.message} @ ${entry.timestamp}`);
+  }
+} catch (err) {
+  console.error(err);
+}
+
+const arr = [10, 20, 30, 40, 50, 60, 70, 80];
+
+// Generators
+
+function* rainbow() {
+  // the asterisk marks this as a generator
+  yield "red";
+  yield "orange";
+  yield "yellow";
+  yield "green";
+  yield "blue";
+  yield "indigo";
+  yield "violet";
+}
+const it = rainbow();
+console.log(it);
+
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+
+console.log(it.return());
+
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+
+console.log(it);
+
+function* interrogate() {
+  const name = yield "What is your name?";
+  const color = yield "What is your favorite color?";
+  yield `${name}'s favorite color is ${color}.`;
+  return;
+}
+
+const int = interrogate();
+console.log(int);
+console.log(int.next().value);
+console.log(int.next("Donald").value);
+console.log(int.next("Darkgreen").value);
+
+console.log(int);
