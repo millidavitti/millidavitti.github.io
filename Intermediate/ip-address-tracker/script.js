@@ -106,7 +106,7 @@ async function getLocation(addy = "91.204.251.248	") {
   } catch (err) {
     const msg =
       err.message !== "Failed to fetch"
-        ? "Check your input and try another"
+        ? "Check your input and try again"
         : "Check your internet connection❗";
 
     const box1 = new Dialog("box1");
