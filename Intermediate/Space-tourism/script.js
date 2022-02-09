@@ -1,5 +1,7 @@
 "use strict";
 
+// codeSandBox!!
+
 const menuBtn = document.querySelector(".ham-icon");
 const mobileNav = document.querySelector(".mobile-nav");
 const header = document.querySelector("header");
@@ -173,17 +175,17 @@ class Desk {
 
   #cssMedia = {
     tablet: this.#style[0].cssRules[6],
-    desktop: this.#style[0].cssRules[7],
+    desktop: this.#style[0].cssRules[7]
   };
 
   #cssDec = {
     tablet: this.#cssMedia.tablet.cssRules[3].style,
-    desktop: this.#cssMedia.desktop.cssRules[1].style,
+    desktop: this.#cssMedia.desktop.cssRules[1].style
   };
 
   #cssRule = {
     tablet: this.#cssMedia.tablet.cssRules[3],
-    desktop: this.#cssMedia.desktop.cssRules[1],
+    desktop: this.#cssMedia.desktop.cssRules[1]
   };
 
   constructor() {}
@@ -221,7 +223,7 @@ class Desk {
   }
 
   cssClass = {
-    deskNav: this.#cssRule.desktop.selectorText.replace(".", ""),
+    deskNav: this.#cssRule.desktop.selectorText.replace(".", "")
   };
 }
 
